@@ -7,7 +7,7 @@
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">There should be an app called Shook. You could make agreements with it - like bets with friends etc. Then you could say &quot;but we Shook on it&quot;</p>&mdash; Matt Jylkka (@mtmograph)</blockquote>
 
 This is the idea of Shook. This repository is the place where all the files
-related to the mobile xamarin based app are going. This app is under development
+related to the mobile Xamarin based app are going. This app is under development
 and you'll not find it in the app store already.<br>
 It is not possible to run the app since you need credentials for the REST api.
 We're working on this topic.
@@ -19,7 +19,7 @@ We're working on this topic.
 # Other repositories related to Shook app
 
 * [RESTapi](https://github.com/ShookApp/ShookREST)
-* [Model Model](https://github.com/ShookApp/ShookModel)
+* [Model library](https://github.com/ShookApp/ShookModel)
 
 # Found a bug or missing a feature?
 
