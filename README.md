@@ -4,8 +4,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/shookapp/shookapp)
 ![GitHub forks](https://img.shields.io/github/forks/shookapp/shookapp)
 
-> There should be an app called Shook. You could make agreements with it - like bets with friends etc. Then
-you could say “but we Shook on it”
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">There should be an app called Shook. You could make agreements with it - like bets with friends etc. Then you could say &quot;but we Shook on it&quot;</p>&mdash; Matt Jylkka (@mtmograph)</blockquote>
 
 This is the idea of Shook. This repository is the place where all the files
 related to the mobile xamarin based app are going. This app is under development
