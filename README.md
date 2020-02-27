@@ -22,7 +22,7 @@ We're working on this topic.
 * [RESTapi](https://github.com/ShookApp/ShookREST)
 * [Model Model](https://github.com/ShookApp/ShookModel)
 
-# Found a bug of missing a feature?
+# Found a bug or missing a feature?
 
 Please let us know what you found. Since we don't want to track every user on
 his or her behaviour our logs aren't that complete. If you had a problem using
