@@ -22,4 +22,7 @@
     <Folder Include="ViewModels\" />
     <Folder Include="Views\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ShookModel\ShookModel.csproj" />
+  </ItemGroup>
 </Project>
