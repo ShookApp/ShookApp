@@ -61,6 +61,15 @@ namespace ShookApp.Resources.i18n {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to User.UserData.Username.
+        /// </summary>
+        internal static string name {
+            get {
+                return ResourceManager.GetString("name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Welcome to Xamarin.Forms!.
         /// </summary>
         internal static string Welcome {

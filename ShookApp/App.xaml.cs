@@ -1,6 +1,5 @@
-﻿using System;
+﻿using ShookApp.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace ShookApp
 {
@@ -10,7 +9,7 @@ namespace ShookApp
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new UserOverview();
         }
 
         protected override void OnStart()

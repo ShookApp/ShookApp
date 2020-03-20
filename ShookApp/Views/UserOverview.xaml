@@ -6,6 +6,16 @@
              mc:Ignorable="d"
              xmlns:local="clr-namespace:ShookApp.Resources.i18n"
              x:Class="ShookApp.Views.UserOverview">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="plainButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#eee"/>
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="BorderRadius" Value="0"/>
+                <Setter Property="FontSize" Value="40" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="iOS" Value="10, 20, 10, 5" />
@@ -14,16 +24,40 @@
     </ContentPage.Padding>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{x:Static local:AppResource.Welcome}"
-                VerticalOptions="Start" 
-                HorizontalOptions="CenterAndExpand" />
-            <BoxView 
-                VerticalOptions="" 
-                HorizontalOptions="CenterAndExpand"
-                Color="Green"/>
-            <Button Text="Test" 
-                VerticalOptions="" 
-                HorizontalOptions="CenterAndExpand" />
+            <ImageButton Source="settings_wheel.png"
+                         Clicked="OpenSettingsButton_Clicked"
+                         HeightRequest="35"
+                         WidthRequest="35"
+                         HorizontalOptions="End"
+                         Margin="0,10,10,0"/>
+            <Frame CornerRadius="100"
+                   HeightRequest="130"
+                   WidthRequest="130"
+                   HorizontalOptions="Center"
+                   Padding="0"
+                   Margin="0,60,0,15"
+                   IsClippedToBounds="True">
+                <Image x:Name="ProfilePictureView" 
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+            </Frame>
+            <Label Text="{x:Static local:AppResource.name}"
+                   HorizontalOptions="Center"
+                   FontSize="Large"
+                   Margin="0,0,0,15"/>
+            <Grid HorizontalOptions="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                </Grid.RowDefinitions>
+                <BoxView Color="Red" Grid.Row="0" Grid.Column="0"/>
+                <BoxView Color="Yellow" Grid.Row="0" Grid.Column="1"/>
+                <BoxView Color="Blue" Grid.Row="0" Grid.Column="2"/>
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
