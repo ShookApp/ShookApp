@@ -24,6 +24,7 @@ namespace ShookApp.Views
         {
             // TODO: Set the Picture which is coming from the LoginPackage as ProfilePicture
             ProfilePictureView.Source = "profile_picture.png";
+            UserNameLabel.Text = "Samofan";
         }
 
         #endregion

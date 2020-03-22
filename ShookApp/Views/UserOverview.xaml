@@ -23,14 +23,27 @@
         </OnPlatform>
     </ContentPage.Padding>
     <ContentPage.Content>
-        <StackLayout>
-            <ImageButton Source="settings_wheel.png"
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <ImageButton Grid.Row="0"
+                         Grid.Column="0"
+                         Source="settings_wheel.png"
                          Clicked="OpenSettingsButton_Clicked"
                          HeightRequest="35"
                          WidthRequest="35"
                          HorizontalOptions="End"
                          Margin="0,10,10,0"/>
-            <Frame CornerRadius="100"
+            <Frame Grid.Row="1"
+                   Grid.Column="0"
+                   CornerRadius="100"
                    HeightRequest="130"
                    WidthRequest="130"
                    HorizontalOptions="Center"
@@ -41,23 +54,35 @@
                        HorizontalOptions="Center"
                        VerticalOptions="Center" />
             </Frame>
-            <Label Text="{x:Static local:AppResource.name}"
+            <Label Grid.Row="2"
+                   Grid.Column="0"
+                   x:Name="UserNameLabel"
                    HorizontalOptions="Center"
                    FontSize="Large"
                    Margin="0,0,0,15"/>
-            <Grid HorizontalOptions="Center">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60" />
-                </Grid.RowDefinitions>
-                <BoxView Color="Red" Grid.Row="0" Grid.Column="0"/>
-                <BoxView Color="Yellow" Grid.Row="0" Grid.Column="1"/>
-                <BoxView Color="Blue" Grid.Row="0" Grid.Column="2"/>
-            </Grid>
-        </StackLayout>
+            <Frame Grid.Row="3"
+                   Grid.Column="0"
+                   HasShadow="True">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="75" />
+                    </Grid.RowDefinitions>
+                    <BoxView Color="Red" 
+                             Grid.Row="0"
+                             Grid.Column="0"/>
+                    <BoxView Color="Green"
+                             Grid.Row="0"
+                             Grid.Column="1"/>
+                    <BoxView Color="Blue"
+                             Grid.Row="0"
+                             Grid.Column="2"/>
+                </Grid>
+            </Frame>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
