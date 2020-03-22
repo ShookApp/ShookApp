@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:local="clr-namespace:ShookApp.Resources.i18n"
-             x:Class="ShookApp.Views.UserOverview">
+             x:Class="ShookApp.Views.UserOverview"
+             BackgroundColor="#303a52">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="plainButton" TargetType="Button">
@@ -19,7 +20,7 @@
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="iOS" Value="10, 20, 10, 5" />
-            <On Platform="Android" Value="10, 0, 10, 5" />
+            <On Platform="Android" Value="10, 10, 10, 5" />
         </OnPlatform>
     </ContentPage.Padding>
     <ContentPage.Content>
@@ -35,12 +36,14 @@
             </Grid.RowDefinitions>
             <ImageButton Grid.Row="0"
                          Grid.Column="0"
+                         BackgroundColor="#fc85ae"
+                         CornerRadius="100"
+                         Padding="2"
                          Source="settings_wheel.png"
                          Clicked="OpenSettingsButton_Clicked"
-                         HeightRequest="35"
-                         WidthRequest="35"
-                         HorizontalOptions="End"
-                         Margin="0,10,10,0"/>
+                         HeightRequest="40"
+                         WidthRequest="40"
+                         HorizontalOptions="End"/>
             <Frame Grid.Row="1"
                    Grid.Column="0"
                    CornerRadius="100"
@@ -48,7 +51,7 @@
                    WidthRequest="130"
                    HorizontalOptions="Center"
                    Padding="0"
-                   Margin="0,60,0,15"
+                   Margin="0,0,0,0"
                    IsClippedToBounds="True">
                 <Image x:Name="ProfilePictureView" 
                        HorizontalOptions="Center"
@@ -59,10 +62,13 @@
                    x:Name="UserNameLabel"
                    HorizontalOptions="Center"
                    FontSize="Large"
+                   TextColor="#fc85ae"
                    Margin="0,0,0,15"/>
             <Frame Grid.Row="3"
                    Grid.Column="0"
-                   HasShadow="True">
+                   HasShadow="True"
+                   BackgroundColor="#574b90"
+                   CornerRadius="10">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -70,18 +76,40 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="75" />
+                        <RowDefinition Height="60" />
                     </Grid.RowDefinitions>
-                    <BoxView Color="Red" 
+                    <BoxView Color="#fc85ae" 
                              Grid.Row="0"
                              Grid.Column="0"/>
-                    <BoxView Color="Green"
+                    <BoxView Color="#fc85ae"
                              Grid.Row="0"
                              Grid.Column="1"/>
-                    <BoxView Color="Blue"
+                    <BoxView Color="#fc85ae"
                              Grid.Row="0"
                              Grid.Column="2"/>
                 </Grid>
+            </Frame>
+            <Frame Grid.Row="4" 
+                   Grid.Column="0"
+                   HasShadow="True"
+                   BackgroundColor="#574b90"
+                   CornerRadius="10" >
+                <ScrollView>
+                    <StackLayout>
+                    <BoxView Color="#fc85ae" 
+                             HeightRequest="100" />
+                    <BoxView Color="#fc85ae" 
+                             HeightRequest="100" />
+                    <BoxView Color="#fc85ae" 
+                             HeightRequest="100" />
+                    <BoxView Color="#fc85ae" 
+                             HeightRequest="100" />                    
+                    <BoxView Color="#fc85ae" 
+                             HeightRequest="100" />
+                    <BoxView Color="#fc85ae" 
+                             HeightRequest="100" />
+                    </StackLayout>                    
+                </ScrollView>                
             </Frame>
         </Grid>
     </ContentPage.Content>
