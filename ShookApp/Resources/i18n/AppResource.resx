@@ -120,7 +120,7 @@
   <data name="name" xml:space="preserve">
     <value>User.UserData.Username</value>
   </data>
-  <data name="Welcome" xml:space="preserve">
-    <value>Welcome to Xamarin.Forms!</value>
+  <data name="recentShooks" xml:space="preserve">
+    <value>Recent Shooks:</value>
   </data>
 </root>

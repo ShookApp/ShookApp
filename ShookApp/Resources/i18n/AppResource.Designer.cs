@@ -70,11 +70,11 @@ namespace ShookApp.Resources.i18n {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to Xamarin.Forms!.
+        ///   Looks up a localized string similar to Recent Shooks:.
         /// </summary>
-        internal static string Welcome {
+        internal static string recentShooks {
             get {
-                return ResourceManager.GetString("Welcome", resourceCulture);
+                return ResourceManager.GetString("recentShooks", resourceCulture);
             }
         }
     }

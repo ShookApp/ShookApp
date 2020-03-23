@@ -9,11 +9,8 @@
              BackgroundColor="#303a52">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="plainButton" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="#eee"/>
-                <Setter Property="TextColor" Value="Black" />
-                <Setter Property="BorderRadius" Value="0"/>
-                <Setter Property="FontSize" Value="40" />
+            <Style x:Key="dummyBoxView" TargetType="BoxView">
+                <Setter Property="Color" Value="#fc85ae" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -78,13 +75,13 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60" />
                     </Grid.RowDefinitions>
-                    <BoxView Color="#fc85ae" 
+                    <BoxView Style="{StaticResource dummyBoxView}"
                              Grid.Row="0"
                              Grid.Column="0"/>
-                    <BoxView Color="#fc85ae"
+                    <BoxView Style="{StaticResource dummyBoxView}"
                              Grid.Row="0"
                              Grid.Column="1"/>
-                    <BoxView Color="#fc85ae"
+                    <BoxView Style="{StaticResource dummyBoxView}"
                              Grid.Row="0"
                              Grid.Column="2"/>
                 </Grid>
@@ -94,22 +91,28 @@
                    HasShadow="True"
                    BackgroundColor="#574b90"
                    CornerRadius="10" >
+                <StackLayout>
+                    <Label Text="{x:Static local:AppResource.recentShooks}"
+                               HorizontalOptions="Start"
+                               FontSize="Large"
+                               TextColor="#fc85ae"/>
                 <ScrollView>
-                    <StackLayout>
-                    <BoxView Color="#fc85ae" 
-                             HeightRequest="100" />
-                    <BoxView Color="#fc85ae" 
-                             HeightRequest="100" />
-                    <BoxView Color="#fc85ae" 
-                             HeightRequest="100" />
-                    <BoxView Color="#fc85ae" 
-                             HeightRequest="100" />                    
-                    <BoxView Color="#fc85ae" 
-                             HeightRequest="100" />
-                    <BoxView Color="#fc85ae" 
-                             HeightRequest="100" />
+                    <StackLayout>                        
+                        <BoxView Style="{StaticResource dummyBoxView}"
+                                 HeightRequest="100" />
+                        <BoxView Style="{StaticResource dummyBoxView}" 
+                                 HeightRequest="100" />
+                        <BoxView Style="{StaticResource dummyBoxView}" 
+                                 HeightRequest="100" />
+                        <BoxView Style="{StaticResource dummyBoxView}" 
+                                 HeightRequest="100" />
+                        <BoxView Style="{StaticResource dummyBoxView}" 
+                                 HeightRequest="100" />
+                        <BoxView Style="{StaticResource dummyBoxView}" 
+                                 HeightRequest="100" />
                     </StackLayout>                    
-                </ScrollView>                
+                </ScrollView>  
+                </StackLayout>                              
             </Frame>
         </Grid>
     </ContentPage.Content>
