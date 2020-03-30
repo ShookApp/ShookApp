@@ -2,9 +2,6 @@
 using ShookModel.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -14,6 +11,9 @@ namespace ShookApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserOverview : ContentPage
     {
+        /// <summary>
+        /// Constructor of the UserOverview.
+        /// </summary>
         public UserOverview()
         {
             InitializeComponent();
@@ -22,18 +22,28 @@ namespace ShookApp.Views
 
         #region Methods
 
+        /// <summary>
+        /// Builds the UserOverview. A picture, a username and the recent shooks
+        /// of this user are needed.
+        /// </summary>
         private void BuildProfile()
         {
-            // TODO: Set the Picture which is coming from the LoginPackage as ProfilePicture.
+            // TODO: Set the Picture which is coming from the <see cref="LoginPackage"/> as ProfilePicture.
             ProfilePictureView.Source = "profile_picture.png";
             UserNameLabel.Text = "Samofan";
+
+            // TODO: Set the won, lost, created variables depending on the user.
 
             // TODO: Get all Shooks of current user and add the 10 most recent to the list as 
             // RecentShooksCellView Object.
             recentShooksListView.ItemsSource = CreateListOfRecentShooksCellViews();
         }
 
-        // Test.
+        /// <summary>
+        /// Test method for filling the ListView.
+        /// </summary>
+        /// <returns>A list with the recent shooks of the user as
+        /// <see cref="RecentShooksCellView"/></returns>
         private List<RecentShooksCellView> CreateListOfRecentShooksCellViews()
         {
             Shook shook1 = new Shook
@@ -43,12 +53,13 @@ namespace ShookApp.Views
                 EndTime = DateTime.Now
             };
 
-            List<RecentShooksCellView> recentShooksCellViews = new List<RecentShooksCellView>();
-
-            recentShooksCellViews.Add(new RecentShooksCellView(shook1));
-            recentShooksCellViews.Add(new RecentShooksCellView(shook1));
-            recentShooksCellViews.Add(new RecentShooksCellView(shook1));
-            recentShooksCellViews.Add(new RecentShooksCellView(shook1));
+            List<RecentShooksCellView> recentShooksCellViews = new List<RecentShooksCellView>
+            {
+                new RecentShooksCellView(shook1),
+                new RecentShooksCellView(shook1),
+                new RecentShooksCellView(shook1),
+                new RecentShooksCellView(shook1)
+            };
 
             return recentShooksCellViews;
         }
@@ -57,6 +68,9 @@ namespace ShookApp.Views
 
         #region ClickEvents
 
+        /// <summary>
+        /// Opens the settings.
+        /// </summary>
         private void OpenSettingsButton_Clicked(object sender, EventArgs e)
         {
             // TODO: Open settings.

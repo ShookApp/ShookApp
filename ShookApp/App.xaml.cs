@@ -9,7 +9,7 @@ namespace ShookApp
         {
             InitializeComponent();
 
-            MainPage = new UserOverview();
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()

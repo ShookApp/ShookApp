@@ -123,4 +123,13 @@
   <data name="recentShooks" xml:space="preserve">
     <value>Letzte Shooks:</value>
   </data>
+  <data name="won" xml:space="preserve">
+    <value>Gewonnen:</value>
+  </data>
+  <data name="lost" xml:space="preserve">
+    <value>Verloren:</value>
+  </data>
+  <data name="created" xml:space="preserve">
+    <value>Erstellt:</value>
+  </data>
 </root>
