@@ -1,6 +1,5 @@
-﻿using System;
+﻿using ShookApp.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace ShookApp
 {

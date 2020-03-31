@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+	xmlns:local="clr-namespace:ShookApp.Resources.i18n" x:Class="ShookApp.Views.UserOverview" 
+    BackgroundColor="#303a52">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="dummyBoxView" 
+                   TargetType="BoxView">
+                <Setter Property="Color" 
+                        Value="#fc85ae" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="10, 45, 10, 40" />
+            <On Platform="Android" Value="10, 10, 10, 5" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <!--TODO: Add settings_wheel.png picture for the settings button.-->
+            <ImageButton Grid.Row="0" 
+                         Grid.Column="0" 
+                         BackgroundColor="#fc85ae" 
+                         CornerRadius="20" 
+                         Padding="2"
+                         Source="settings_wheel.png" 
+                         Clicked="OpenSettingsButton_Clicked" 
+                         HeightRequest="40" 
+                         WidthRequest="40" 
+                         HorizontalOptions="End" />
+
+            <Frame Grid.Row="1" 
+                   Grid.Column="0" 
+                   CornerRadius="65" 
+                   HeightRequest="130" 
+                   WidthRequest="130" 
+                   HorizontalOptions="Center"
+                   HasShadow="True"
+                   Padding="0" 
+                   Margin="0,0,0,0" 
+                   IsClippedToBounds="True">
+                <Image x:Name="ProfilePictureView" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" />
+            </Frame>
+
+            <Label Grid.Row="2" 
+                   Grid.Column="0" 
+                   x:Name="UserNameLabel" 
+                   HorizontalOptions="Center" 
+                   FontSize="Large" 
+                   TextColor="#fc85ae" 
+                   Margin="0,0,0,15" />
+
+            <Frame Grid.Row="3" 
+                   Grid.Column="0" 
+                   HasShadow="True" 
+                   BackgroundColor="#574b90" 
+                   CornerRadius="10">
+                <Grid x:Name="statisticsGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60" />
+                    </Grid.RowDefinitions>
+                    <Frame Grid.Row="0"
+                           Grid.Column="0"
+                           CornerRadius="10"
+                           HasShadow="False"
+                           Padding="5,5,5,5"
+                           BackgroundColor="#fc85ae">
+                        <StackLayout>
+                            <Label Text="{x:Static local:AppResource.won}"
+                                   HorizontalTextAlignment="Center"/>
+                            <Label Text="{Binding WonShooks}" />
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="0"
+                           Grid.Column="1"
+                           CornerRadius="10"
+                           HasShadow="False"
+                           Padding="5,5,5,5"
+                           BackgroundColor="#fc85ae">
+                        <StackLayout>
+                            <Label Text="{x:Static local:AppResource.lost}"
+                                   HorizontalTextAlignment="Center"/>
+                            <Label Text="{Binding LostShooks}" />
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Row="0"
+                           Grid.Column="2"
+                           CornerRadius="10"
+                           HasShadow="False"
+                           Padding="5,5,5,5"
+                           BackgroundColor="#fc85ae">
+                        <StackLayout>
+                            <Label Text="{x:Static local:AppResource.created}"
+                                   HorizontalTextAlignment="Center"/>
+                            <Label Text="{Binding CreatedShooks}" />
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </Frame>
+
+            <Frame Grid.Row="4" 
+                   Grid.Column="0" 
+                   HasShadow="True" 
+                   BackgroundColor="#574b90" 
+                   CornerRadius="10">
+                <StackLayout>
+                    <Label Text="{x:Static local:AppResource.recentShooks}" 
+                           HorizontalOptions="Start" 
+                           FontSize="Large" 
+                           TextColor="#fc85ae" />
+                    <ListView x:Name="recentShooksListView" 
+                              RowHeight="115"
+                              BackgroundColor="#574b90"
+                              SeparatorVisibility="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell IsEnabled="false">
+                                    <Frame BackgroundColor="{Binding Color}" 
+                                           HasShadow="False" 
+                                           CornerRadius="10" 
+                                           Margin="0,0,0,15">
+                                        <StackLayout>
+                                            <Label Text="{Binding Title}" 
+                                                   FontSize="Medium" />
+                                            <Label Text="{Binding Description}" />
+                                            <Label Text="{Binding End}" />
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
