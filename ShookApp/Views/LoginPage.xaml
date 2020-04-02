@@ -1,142 +1,57 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:shookApp="clr-namespace:ShookApp;assembly=ShookApp"
              mc:Ignorable="d"
-             x:Class="ShookApp.Views.LoginPage">
+             x:Class="ShookApp.Views.LoginPage"
+             BackgroundImageSource="background.png">
+    <!-- TODO: Change background image -->
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="10, 45, 10, 40" />
+            <On Platform="Android" Value="10, 10, 10, 5" />
+        </OnPlatform>
+    </ContentPage.Padding>
     <ContentPage.Content>
-        <StackLayout>
-
-
-
-            <Grid Padding="0,40,0,0">
-                 <Grid.RowDefinitions>
-                       <RowDefinition Height="Auto" />
-                       <RowDefinition Height="Auto" />
-                       <RowDefinition Height="Auto" />
-                       <RowDefinition Height="*" />
-                 </Grid.RowDefinitions>
-                 <Grid.ColumnDefinitions>
-                       <ColumnDefinition Width="*" />
-                 </Grid.ColumnDefinitions>
-
-
-                <Image HeightRequest= "{OnPlatform iOS=900, Android=600}"
-                   WidthRequest="1000"
-                   Source=""
-                   Aspect="AspectFill"
-                   HorizontalOptions="Center"
-                  VerticalOptions="StartAndExpand"
-                       
-                />
-
-                <StackLayout>
-
-                    <StackLayout.Padding>
-                        <OnPlatform x:TypeArguments="Thickness"
-                                    Android="0,50,0,0"
-                                    iOS="0,60,0,0"/>
-                    </StackLayout.Padding>
-
-                      <Label 
-                       Text="Login"
-                       FontSize="Title"
-                       FontAttributes="Bold"
-                       LineHeight="1.5"
-                       Grid.Row="0"
-                       Grid.Column="0"
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <StackLayout Grid.Row="0"
+                         Grid.Column="0">
+                <!-- TODO: Insert logo image and remove label -->
+                <Label Text="LOGO"
+                       FontSize="Header" 
                        HorizontalOptions="Center"
-                      />
-                </StackLayout>
-
-                <StackLayout>
-
-                    <StackLayout.Padding>
-                        <OnPlatform x:TypeArguments="Thickness"
-                                    Android="50,130,50,0"
-                                    iOS="50,200,50,0"/>
-                    </StackLayout.Padding>
-
-                    <Entry
-                       Keyboard="Text"
-                       Placeholder="Enter Username or Email"
-                       FontSize="Large"
-                       PlaceholderColor="Black"
-                       HorizontalOptions="FillAndExpand"
-                       Opacity="0.7"
-                       BackgroundColor="LightGray"
-                       
-                    />
-                </StackLayout>
-
-                <StackLayout>
-                    <StackLayout.Padding>
-                        <OnPlatform x:TypeArguments="Thickness"
-                                    Android="50,200,50,0"
-                                    iOS="50,260,50,0"/>
-                    </StackLayout.Padding>
-
-                    <Entry
-                       Keyboard="Text"
+                       VerticalOptions="Center"/>
+            </StackLayout>
+            
+            <StackLayout Grid.Row="1"
+                         Grid.Column="0">
+                <Entry Style="{StaticResource LoginPageEntry}"
+                       Placeholder="Enter Username or Email" />
+                <Entry Style="{StaticResource LoginPageEntry}"
                        Placeholder="Enter Password"
-                       FontSize="Large"
-                       IsPassword="True"
-                       HorizontalOptions="FillAndExpand"
-                       PlaceholderColor="Black"
-                       Opacity="0.7"
-                       BackgroundColor="LightGray"
-                   />
-
-                </StackLayout>
-
-                <StackLayout>
-
-                    <StackLayout.Padding>
-                        <OnPlatform x:TypeArguments="Thickness"
-                                    Android="50,290,0,0"
-                                    iOS="50,350,0,0"/>
-                    </StackLayout.Padding>
-
-                    <Button
-                       Text="Login"
-                       FontSize="Large"
-                       BorderWidth="1"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Start"
-                        BackgroundColor="LightGray"
-                        BorderColor="Black"
-                        TextColor="Black"
-                        WidthRequest="{OnPlatform iOS=120, Android=130}"
-                        Opacity="0.7"
-                        CornerRadius="20"
-                    />
-                </StackLayout>
-
-                <StackLayout>
-
-                    <StackLayout.Padding>
-                        <OnPlatform x:TypeArguments="Thickness"
-                                    Android="230,290,0,0"
-                                    iOS="245,350,0,0"/>
-                    </StackLayout.Padding>
-
-                    <Button
-                       Text="Register"
-                       FontSize="Large"
-                       BorderWidth="1"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Start"
-                        BackgroundColor="LightGray"
-                        BorderColor="Black"
-                        TextColor="Black"
-                        WidthRequest="{OnPlatform iOS=120, Android=130}"
-                        Opacity="0.7"
-                        CornerRadius="20"
-                    />
-                </StackLayout>
-
-            </Grid>
-        </StackLayout>
+                       IsPassword="True" 
+                       Completed="Login_Clicked"/>
+            </StackLayout>
+            
+            <StackLayout Grid.Row="2"
+                         Grid.Column="0">
+                <Button Text="Login"
+                        Style="{StaticResource LoginPageButton}"
+                        Clicked="Login_Clicked" />
+                <Button Text="Register"
+                        Style="{StaticResource LoginPageButton}"/>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
