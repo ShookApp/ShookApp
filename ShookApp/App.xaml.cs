@@ -1,4 +1,5 @@
 ﻿using ShookApp.Views;
+using ShookModel.Models;
 using Xamarin.Forms;
 
 namespace ShookApp

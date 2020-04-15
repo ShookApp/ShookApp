@@ -29,7 +29,7 @@
                          Grid.Column="0">
                 <!-- TODO: Insert logo image and remove label -->
                 <Label Text="LOGO"
-                       FontSize="Header" 
+                       FontSize="96" 
                        HorizontalOptions="Center"
                        VerticalOptions="Center"/>
             </StackLayout>
