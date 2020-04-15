@@ -144,4 +144,7 @@
       <Name>ShookApp</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\background.imageset\" />
+  </ItemGroup>
 </Project>
