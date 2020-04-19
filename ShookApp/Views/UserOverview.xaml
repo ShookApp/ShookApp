@@ -3,8 +3,11 @@
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
-	xmlns:local="clr-namespace:ShookApp.Resources.i18n" x:Class="ShookApp.Views.UserOverview" 
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d"
+	xmlns:local="clr-namespace:ShookApp.Resources.i18n" 
+    x:Class="ShookApp.Views.UserOverview" 
+    NavigationPage.HasNavigationBar="false"
     BackgroundColor="#303a52">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -54,14 +57,14 @@
                    Padding="0" 
                    Margin="0,0,0,0" 
                    IsClippedToBounds="True">
-                <Image x:Name="ProfilePictureView" 
+                <Image x:Name="profilePictureView" 
                        HorizontalOptions="Center" 
                        VerticalOptions="Center" />
             </Frame>
 
             <Label Grid.Row="2" 
                    Grid.Column="0" 
-                   x:Name="UserNameLabel" 
+                   x:Name="userNameLabel" 
                    HorizontalOptions="Center" 
                    FontSize="Large" 
                    TextColor="#fc85ae" 
@@ -90,7 +93,8 @@
                         <StackLayout>
                             <Label Text="{x:Static local:AppResource.won}"
                                    HorizontalTextAlignment="Center"/>
-                            <Label Text="{Binding WonShooks}" />
+                            <Label Text="{Binding WonShooks}"
+                                   HorizontalTextAlignment="Center" />
                         </StackLayout>
                     </Frame>
                     <Frame Grid.Row="0"
@@ -102,7 +106,8 @@
                         <StackLayout>
                             <Label Text="{x:Static local:AppResource.lost}"
                                    HorizontalTextAlignment="Center"/>
-                            <Label Text="{Binding LostShooks}" />
+                            <Label Text="{Binding LostShooks}"
+                                   HorizontalTextAlignment="Center" />
                         </StackLayout>
                     </Frame>
                     <Frame Grid.Row="0"
@@ -114,7 +119,8 @@
                         <StackLayout>
                             <Label Text="{x:Static local:AppResource.created}"
                                    HorizontalTextAlignment="Center"/>
-                            <Label Text="{Binding CreatedShooks}" />
+                            <Label Text="{Binding CreatedShooks}" 
+                                   HorizontalTextAlignment="Center" />
                         </StackLayout>
                     </Frame>
                 </Grid>
@@ -143,8 +149,10 @@
                                            Margin="0,0,0,15">
                                         <StackLayout>
                                             <Label Text="{Binding Title}" 
-                                                   FontSize="Medium" />
-                                            <Label Text="{Binding Description}" />
+                                                   FontSize="Medium" 
+                                                   LineBreakMode="TailTruncation"/>
+                                            <Label Text="{Binding Description}"
+                                                   LineBreakMode="TailTruncation"/>
                                             <Label Text="{Binding End}" />
                                         </StackLayout>
                                     </Frame>

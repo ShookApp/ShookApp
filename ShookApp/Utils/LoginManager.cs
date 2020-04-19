@@ -18,22 +18,14 @@ namespace ShookApp.Utils
         /// <returns>True if the credentials are valid.</returns>
         public bool CheckPassword(string username, string password)
         {
-            var client = new ShookDebugHttpClient("https://IpToShookREST/login?username=" + username + "&password=" + password);
+            var client = new ShookDebugHttpClient("https://IpOfShookREST/login?username=" + username + "&password=" + password);
             var request = new RestRequest(Method.POST);
             
             IRestResponse response = client.Execute(request);
 
             LoginPackage loginPackage;
 
-            try
-            {
-                loginPackage = BsonSerializer.Deserialize<LoginPackage>(response.Content);
-            }
-            catch(Exception)
-            {
-                //TODO: Exception handling (EndOfDocument)
-                throw new Exception();
-            }
+            loginPackage = BsonSerializer.Deserialize<LoginPackage>(response.Content);
 
             return VerificateLoginPackage(loginPackage);
         }

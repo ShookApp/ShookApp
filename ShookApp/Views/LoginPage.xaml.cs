@@ -34,7 +34,7 @@ namespace ShookApp.Views
         {
             if (loginManager.CheckPassword(usernameEntry.Text, passwordEntry.Text))
             {
-                App.Current.MainPage = new UserOverview();
+                App.Current.MainPage = new NavigationPage(new UserOverview(Statics.loginPackage.AccountUser));
             }
             else
             {

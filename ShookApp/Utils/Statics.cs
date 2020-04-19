@@ -21,5 +21,14 @@ namespace ShookApp.Utils
         /// the <see cref="LoginManager"/>.
         /// </summary>
         public static string apiKey;
+
+        /// <summary>
+        /// Method to delete the static variables for example when the user wants to logout.
+        /// </summary>
+        public static void DeleteAllStatics()
+        {
+            loginPackage = new EmptyLoginPackage();
+            apiKey = "";
+        }
     }
 }

@@ -3,21 +3,29 @@ using ShookApp.ViewModels;
 using ShookModel.Models;
 using System;
 using System.Collections.Generic;
-
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace ShookApp.Views
 {
+
+    /// <summary>
+    /// Displays a <see cref="User"/> in a nice way.
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserOverview : ContentPage
     {
+        private readonly User userToDisplay;
+
         /// <summary>
         /// Constructor of the UserOverview.
         /// </summary>
-        public UserOverview()
+        /// <param name="user">The user that should be displayed.</param>
+        public UserOverview(User user)
         {
             InitializeComponent();
+            userToDisplay = user;
             BuildProfile();
         }
 
@@ -29,19 +37,15 @@ namespace ShookApp.Views
         /// </summary>
         private void BuildProfile()
         {
-            // TODO: Set the Picture which is coming from the <see cref="LoginPackage"/> as ProfilePicture.
-            ProfilePictureView.Source = "profilepicture.png";
-            UserNameLabel.Text = Statics.loginPackage.AccountUser.UserData.UserName;
-
-            // TODO: Set the won, lost, created variables depending on the user.
-
-            // TODO: Get all Shooks of current user and add the 10 most recent to the list as 
-            // RecentShooksCellView Object.
+            // TODO: Set the Picture which is coming from the user as ProfilePicture.
+            profilePictureView.Source = "profile_picture.png";
+            userNameLabel.Text = userToDisplay.UserData.UserName;
+            statisticsGrid.BindingContext = new StatisticsGridBindings(userToDisplay); 
             recentShooksListView.ItemsSource = CreateListOfRecentShooksCellViews();
         }
 
         /// <summary>
-        /// Test method for filling the ListView.
+        /// Creates a list with RecentShooksCellViews. But only the 10 recent ones.
         /// </summary>
         /// <returns>A list with the recent shooks of the user as
         /// <see cref="RecentShooksCellView"/></returns>
@@ -49,13 +53,26 @@ namespace ShookApp.Views
         {
             List<RecentShooksCellView> recentShooksCellViews = new List<RecentShooksCellView>();
 
-            foreach (Shook shook in Statics.loginPackage.AccountUser.Shooks)
+            // If the user is member in less than 10 shooks iterate over all present shooks.
+            if (userToDisplay.Shooks.Count > 10)
             {
-                recentShooksCellViews.Add(new RecentShooksCellView(shook));
+                for (var i = 0; i < 10; i++)
+                {
+                    recentShooksCellViews.Add(new RecentShooksCellView(userToDisplay.Shooks[i]));
+                }
             }
-
+            else
+            {
+                foreach (Shook shook in userToDisplay.Shooks)
+                {
+                    recentShooksCellViews.Add(new RecentShooksCellView(shook));
+                }
+            }
+            
             return recentShooksCellViews;
         }
+
+        
 
         #endregion
 
@@ -67,6 +84,7 @@ namespace ShookApp.Views
         private void OpenSettingsButton_Clicked(object sender, EventArgs e)
         {
             // TODO: Open settings.
+            Navigation.PushAsync(new MainPage());
         }
 
         #endregion
