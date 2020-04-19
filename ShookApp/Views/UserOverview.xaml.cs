@@ -1,4 +1,5 @@
-﻿using ShookApp.ViewModels;
+﻿using ShookApp.Utils;
+using ShookApp.ViewModels;
 using ShookModel.Models;
 using System;
 using System.Collections.Generic;
@@ -29,8 +30,8 @@ namespace ShookApp.Views
         private void BuildProfile()
         {
             // TODO: Set the Picture which is coming from the <see cref="LoginPackage"/> as ProfilePicture.
-            ProfilePictureView.Source = "profile_picture.png";
-            UserNameLabel.Text = "Samofan";
+            ProfilePictureView.Source = "profilepicture.png";
+            UserNameLabel.Text = Statics.loginPackage.AccountUser.UserData.UserName;
 
             // TODO: Set the won, lost, created variables depending on the user.
 
@@ -46,20 +47,12 @@ namespace ShookApp.Views
         /// <see cref="RecentShooksCellView"/></returns>
         private List<RecentShooksCellView> CreateListOfRecentShooksCellViews()
         {
-            Shook shook1 = new Shook
-            {
-                Title = "Test",
-                Description = "Test Description",
-                EndTime = DateTime.Now
-            };
+            List<RecentShooksCellView> recentShooksCellViews = new List<RecentShooksCellView>();
 
-            List<RecentShooksCellView> recentShooksCellViews = new List<RecentShooksCellView>
+            foreach (Shook shook in Statics.loginPackage.AccountUser.Shooks)
             {
-                new RecentShooksCellView(shook1),
-                new RecentShooksCellView(shook1),
-                new RecentShooksCellView(shook1),
-                new RecentShooksCellView(shook1)
-            };
+                recentShooksCellViews.Add(new RecentShooksCellView(shook));
+            }
 
             return recentShooksCellViews;
         }

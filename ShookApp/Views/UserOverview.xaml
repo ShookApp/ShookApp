@@ -32,13 +32,13 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <!--TODO: Add settings_wheel.png picture for the settings button.-->
+            <!--TODO: Add settingswheel.png picture for the settings button.-->
             <ImageButton Grid.Row="0" 
                          Grid.Column="0" 
                          BackgroundColor="#fc85ae" 
                          CornerRadius="20" 
                          Padding="2"
-                         Source="settings_wheel.png" 
+                         Source="settingswheel.png" 
                          Clicked="OpenSettingsButton_Clicked" 
                          HeightRequest="40" 
                          WidthRequest="40" 
