@@ -16,7 +16,7 @@ namespace ShookApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserOverview : ContentPage
     {
-        private readonly User userToDisplay;
+        private readonly User _userToDisplay;
 
         /// <summary>
         /// Constructor of the UserOverview.
@@ -25,7 +25,7 @@ namespace ShookApp.Views
         public UserOverview(User user)
         {
             InitializeComponent();
-            userToDisplay = user;
+            _userToDisplay = user;
             BuildProfile();
         }
 
@@ -38,10 +38,10 @@ namespace ShookApp.Views
         private void BuildProfile()
         {
             // TODO: Set the Picture which is coming from the user as ProfilePicture.
-            profilePictureView.Source = "profile_picture.png";
-            userNameLabel.Text = userToDisplay.UserData.UserName;
-            statisticsGrid.BindingContext = new StatisticsGridBindings(userToDisplay); 
-            recentShooksListView.ItemsSource = CreateListOfRecentShooksCellViews();
+            ProfilePictureView.Source = "profile_picture.png";
+            UserNameLabel.Text = _userToDisplay.UserData.UserName;
+            StatisticsGrid.BindingContext = new StatisticsGridBindings(_userToDisplay); 
+            RecentShooksListView.ItemsSource = CreateListOfRecentShooksCellViews();
         }
 
         /// <summary>
@@ -54,16 +54,16 @@ namespace ShookApp.Views
             List<RecentShooksCellView> recentShooksCellViews = new List<RecentShooksCellView>();
 
             // If the user is member in less than 10 shooks iterate over all present shooks.
-            if (userToDisplay.Shooks.Count > 10)
+            if (_userToDisplay.Shooks.Count > 10)
             {
                 for (var i = 0; i < 10; i++)
                 {
-                    recentShooksCellViews.Add(new RecentShooksCellView(userToDisplay.Shooks[i]));
+                    recentShooksCellViews.Add(new RecentShooksCellView(_userToDisplay.Shooks[i]));
                 }
             }
             else
             {
-                foreach (Shook shook in userToDisplay.Shooks)
+                foreach (Shook shook in _userToDisplay.Shooks)
                 {
                     recentShooksCellViews.Add(new RecentShooksCellView(shook));
                 }
@@ -71,9 +71,7 @@ namespace ShookApp.Views
             
             return recentShooksCellViews;
         }
-
         
-
         #endregion
 
         #region ClickEvents

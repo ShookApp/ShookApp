@@ -14,7 +14,7 @@ namespace ShookApp.Views
         /// <summary>
         /// The <see cref="LoginManager"/> that is responsible for validating the password and username.
         /// </summary>
-        private readonly LoginManager loginManager = new LoginManager();
+        private readonly LoginManager _loginManager = new LoginManager();
 
         /// <summary>
         /// Default constructor.
@@ -32,7 +32,7 @@ namespace ShookApp.Views
         /// <param name="e"></param>
         private void Login_Clicked(object sender, EventArgs e)
         {
-            if (loginManager.CheckPassword(usernameEntry.Text, passwordEntry.Text))
+            if (_loginManager.CheckPassword(usernameEntry.Text, passwordEntry.Text))
             {
                 App.Current.MainPage = new NavigationPage(new UserOverview(Statics.loginPackage.AccountUser));
             }

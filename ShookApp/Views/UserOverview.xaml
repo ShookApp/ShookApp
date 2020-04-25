@@ -11,7 +11,7 @@
     BackgroundColor="#303a52">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="dummyBoxView" 
+            <Style x:Key="DummyBoxView" 
                    TargetType="BoxView">
                 <Setter Property="Color" 
                         Value="#fc85ae" />
@@ -31,6 +31,7 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -57,14 +58,14 @@
                    Padding="0" 
                    Margin="0,0,0,0" 
                    IsClippedToBounds="True">
-                <Image x:Name="profilePictureView" 
+                <Image x:Name="ProfilePictureView" 
                        HorizontalOptions="Center" 
                        VerticalOptions="Center" />
             </Frame>
 
             <Label Grid.Row="2" 
                    Grid.Column="0" 
-                   x:Name="userNameLabel" 
+                   x:Name="UserNameLabel" 
                    HorizontalOptions="Center" 
                    FontSize="Large" 
                    TextColor="#fc85ae" 
@@ -75,7 +76,7 @@
                    HasShadow="True" 
                    BackgroundColor="#574b90" 
                    CornerRadius="10">
-                <Grid x:Name="statisticsGrid">
+                <Grid x:Name="StatisticsGrid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -136,13 +137,15 @@
                            HorizontalOptions="Start" 
                            FontSize="Large" 
                            TextColor="#fc85ae" />
-                    <ListView x:Name="recentShooksListView" 
+                    <ListView x:Name="RecentShooksListView" 
                               RowHeight="115"
                               BackgroundColor="#574b90"
                               SeparatorVisibility="None">
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <ViewCell IsEnabled="false">
+                                <!-- TODO: Add a Tapped property for showing the selected shook. -->
+                                <ViewCell IsEnabled="True"
+                                          Tapped="OpenSettingsButton_Clicked">
                                     <Frame BackgroundColor="{Binding Color}" 
                                            HasShadow="False" 
                                            CornerRadius="10" 

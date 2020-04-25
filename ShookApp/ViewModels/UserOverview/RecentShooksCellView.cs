@@ -9,21 +9,21 @@ namespace ShookApp.ViewModels
     /// </summary>
     class RecentShooksCellView
     {
-        public string Title { get; private set; }
-        public string Description { get; private set; }
-        public string End { get; private set; }
+        public string Title { get; }
+        public string Description { get; }
+        public string End { get; }
         // TODO: If this Shook was won ? Color = green : Color = red.
-        public string Color { get; private set; }
+        public string Color { get; }
 
         /// <summary>
         /// Converts a <see cref="Shook"/> to <see cref="RecentShooksCellView"/> item.
         /// </summary>
-        /// <param name="_shook">A Shook you want to convert.</param>
-        public RecentShooksCellView(Shook _shook)
+        /// <param name="shook">A Shook you want to convert.</param>
+        public RecentShooksCellView(Shook shook)
         {
-            Title = _shook.Title;
-            Description = _shook.Description;
-            End = CalculateEndTime(_shook.EndTime);
+            Title = shook.Title;
+            Description = shook.Description;
+            End = CalculateEndTime(shook.EndTime);
             Color = "#fc85ae";
         }
 
@@ -34,19 +34,19 @@ namespace ShookApp.ViewModels
         /// <returns>A humanized string like "Ended 1 week ago"</returns>
         private string CalculateEndTime(DateTime endTime)
         {
-            DateTime _returnDateTime = DateTime.Now;
+            var returnDateTime = DateTime.Now;
 
             // TODO: Add i18n to return value.
 
-            if (endTime < _returnDateTime)
+            if (endTime < returnDateTime)
             {
-                TimeSpan timeSpan = endTime.Subtract(_returnDateTime);
+                var timeSpan = endTime.Subtract(returnDateTime);
 
                 return "Ended " + timeSpan.Humanize() + " ago.";
             }
             else
             {
-                TimeSpan timeSpan = _returnDateTime.Subtract(endTime);
+                var timeSpan = returnDateTime.Subtract(endTime);
 
                 return "Ending in " + timeSpan.Humanize() + ".";
             }
