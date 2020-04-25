@@ -18,7 +18,7 @@ namespace ShookApp.Utils
         /// <returns>True if the credentials are valid.</returns>
         public bool CheckPassword(string username, string password)
         {
-            var client = new ShookDebugHttpClient("https://IpOfShookREST/login?username=" + username + "&password=" + password);
+            var client = new ShookDebugHttpClient("login?username=" + username + "&password=" + password);
             var request = new RestRequest(Method.POST);
             
             var response = client.Execute(request);
@@ -53,8 +53,8 @@ namespace ShookApp.Utils
         /// <param name="loginPackage">The received <see cref="LoginPackage"/> with the valid user credentials.</param>
         private void SaveLoginPackage(LoginPackage loginPackage)
         {
-            Statics.loginPackage = loginPackage;
-            Statics.apiKey = loginPackage.ApiKey;
+            Statics.LoginPackage = loginPackage;
+            Statics.ApiKey = loginPackage.ApiKey;
         }
     }
 }

@@ -77,14 +77,24 @@ namespace ShookApp.Views
         #region ClickEvents
 
         /// <summary>
-        /// Opens the settings.
+        /// Deletes the <see cref="Statics"/> class and switches to the LoginPage. In the future this
+        /// method will show the settings.
         /// </summary>
         private void OpenSettingsButton_Clicked(object sender, EventArgs e)
         {
             // TODO: Open settings.
-            Navigation.PushAsync(new MainPage());
+            Statics.DeleteAllStatics();
+            App.Current.MainPage = new LoginPage();
         }
 
+        /// <summary>
+        /// Shows a new Page. In the future this method will show further information of the selected shook.
+        /// </summary>
+        private void RecentShooksListItem_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MainPage());
+        }
+        
         #endregion
     }
 }

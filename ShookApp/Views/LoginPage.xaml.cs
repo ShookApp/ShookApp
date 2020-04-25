@@ -30,11 +30,13 @@ namespace ShookApp.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// <remarks>There is an error on iOS while debugging with a mac. If you press enter on the password entry
+        /// something fails and th application crashes!</remarks>
         private void Login_Clicked(object sender, EventArgs e)
         {
             if (_loginManager.CheckPassword(usernameEntry.Text, passwordEntry.Text))
             {
-                App.Current.MainPage = new NavigationPage(new UserOverview(Statics.loginPackage.AccountUser));
+                App.Current.MainPage = new NavigationPage(new UserOverview(Statics.LoginPackage.AccountUser));
             }
             else
             {

@@ -34,7 +34,7 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <!--TODO: Add settingswheel.png picture for the settings button.-->
             <ImageButton Grid.Row="0" 
@@ -145,7 +145,7 @@
                             <DataTemplate>
                                 <!-- TODO: Add a Tapped property for showing the selected shook. -->
                                 <ViewCell IsEnabled="True"
-                                          Tapped="OpenSettingsButton_Clicked">
+                                          Tapped="RecentShooksListItem_Clicked">
                                     <Frame BackgroundColor="{Binding Color}" 
                                            HasShadow="False" 
                                            CornerRadius="10" 
