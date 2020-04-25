@@ -3,6 +3,7 @@ using ShookApp.ViewModels;
 using ShookModel.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,6 +17,9 @@ namespace ShookApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserOverview : ContentPage
     {
+        /// <summary>
+        /// The user that should be displayed.
+        /// </summary>
         private readonly User _userToDisplay;
 
         /// <summary>
@@ -38,7 +42,8 @@ namespace ShookApp.Views
         private void BuildProfile()
         {
             // TODO: Set the Picture which is coming from the user as ProfilePicture.
-            ProfilePictureView.Source = "profile_picture.png";
+            ProfilePictureView.Source = ImageSource.FromStream(
+                () => new MemoryStream(Convert.FromBase64String(_userToDisplay.UserData.ProfilePicture)));
             UserNameLabel.Text = _userToDisplay.UserData.UserName;
             StatisticsGrid.BindingContext = new StatisticsGridBindings(_userToDisplay); 
             RecentShooksListView.ItemsSource = CreateListOfRecentShooksCellViews();
