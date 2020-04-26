@@ -84,13 +84,13 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\profile_picture.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ShookApp\ShookApp.csproj">
       <Project>{38405824-66AC-404D-A177-74CB4DD7E6B0}</Project>
       <Name>ShookApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\drawable" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

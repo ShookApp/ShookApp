@@ -41,7 +41,6 @@ namespace ShookApp.Views
         /// </summary>
         private void BuildProfile()
         {
-            // TODO: Set the Picture which is coming from the user as ProfilePicture.
             ProfilePictureView.Source = ImageSource.FromStream(
                 () => new MemoryStream(Convert.FromBase64String(_userToDisplay.UserData.ProfilePicture)));
             UserNameLabel.Text = _userToDisplay.UserData.UserName;
