@@ -16,8 +16,8 @@ namespace ShookApp.Utils
         /// Constructor that changes the RemoteCertificationValidationCallback and adds a timeout
         /// of 30 seconds. Throws an EndOfDocument Exception if the timout is reached. 
         /// </summary>
-        /// <param name="baseUrl">The URL of the ShookREST API</param>
-        public ShookDebugHttpClient(string baseUrl) : base(baseUrl)
+        /// <param name="url">The location of the api request to be made.</param>
+        public ShookDebugHttpClient(string url) : base(Statics.ShookServer + url)
         {
             RemoteCertificateValidationCallback = delegate { return true; };
             Timeout = 30000;

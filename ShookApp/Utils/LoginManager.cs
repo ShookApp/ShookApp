@@ -18,22 +18,12 @@ namespace ShookApp.Utils
         /// <returns>True if the credentials are valid.</returns>
         public bool CheckPassword(string username, string password)
         {
-            var client = new ShookDebugHttpClient("https://IpOfShookREST/login?username=" + username + "&password=" + password);
+            var client = new ShookDebugHttpClient("login?username=" + username + "&password=" + password);
             var request = new RestRequest(Method.POST);
             
-            IRestResponse response = client.Execute(request);
+            var response = client.Execute(request);
 
-            LoginPackage loginPackage;
-
-            try
-            {
-                loginPackage = BsonSerializer.Deserialize<LoginPackage>(response.Content);
-            }
-            catch(Exception)
-            {
-                //TODO: Exception handling (EndOfDocument)
-                throw new Exception();
-            }
+            var loginPackage = BsonSerializer.Deserialize<LoginPackage>(response.Content);
 
             return VerificateLoginPackage(loginPackage);
         }
@@ -60,11 +50,11 @@ namespace ShookApp.Utils
         /// <summary>
         /// Saves the <see cref="LoginPackage"/> and the apiKey to the <see cref="Statics"/> class.
         /// </summary>
-        /// <param name="_loginPackage">The received <see cref="LoginPackage"/> with the valid user credentials.</param>
-        private void SaveLoginPackage(LoginPackage _loginPackage)
+        /// <param name="loginPackage">The received <see cref="LoginPackage"/> with the valid user credentials.</param>
+        private void SaveLoginPackage(LoginPackage loginPackage)
         {
-            Statics.loginPackage = _loginPackage;
-            Statics.apiKey = _loginPackage.ApiKey;
+            Statics.LoginPackage = loginPackage;
+            Statics.ApiKey = loginPackage.ApiKey;
         }
     }
 }

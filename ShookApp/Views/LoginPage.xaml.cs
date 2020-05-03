@@ -14,7 +14,7 @@ namespace ShookApp.Views
         /// <summary>
         /// The <see cref="LoginManager"/> that is responsible for validating the password and username.
         /// </summary>
-        private readonly LoginManager loginManager = new LoginManager();
+        private readonly LoginManager _loginManager = new LoginManager();
 
         /// <summary>
         /// Default constructor.
@@ -30,11 +30,13 @@ namespace ShookApp.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// <remarks>There is an error on iOS while debugging with a mac. If you press enter on the password entry
+        /// something fails and th application crashes!</remarks>
         private void Login_Clicked(object sender, EventArgs e)
         {
-            if (loginManager.CheckPassword(usernameEntry.Text, passwordEntry.Text))
+            if (_loginManager.CheckPassword(usernameEntry.Text, passwordEntry.Text))
             {
-                App.Current.MainPage = new MainPage();
+                App.Current.MainPage = new NavigationPage(new UserOverview(Statics.LoginPackage.AccountUser));
             }
             else
             {
