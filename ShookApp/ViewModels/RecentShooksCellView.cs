@@ -4,10 +4,9 @@ using System;
 
 namespace ShookApp.ViewModels
 {
-    /*
-        This class is used to fill the recentShooksListView in
-        UserOverview.xaml. 
-     */
+    /// <summary>
+    /// This class is used to fill the recentShooksListView in UserOverview.xaml.
+    /// </summary>
     class RecentShooksCellView
     {
         public string Title { get; private set; }

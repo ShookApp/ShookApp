@@ -8,6 +8,7 @@
              x:Class="ShookApp.Views.LoginPage"
              BackgroundImageSource="background.png">
     <!-- TODO: Change background image -->
+    <!-- TODO: Add i18n -->
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
             <On Platform="iOS" Value="10, 45, 10, 40" />
@@ -37,11 +38,13 @@
             <StackLayout Grid.Row="1"
                          Grid.Column="0">
                 <Entry Style="{StaticResource LoginPageEntry}"
-                       Placeholder="Enter Username or Email" />
+                       Placeholder="Enter Username or Email"
+                       x:Name="usernameEntry"/>
                 <Entry Style="{StaticResource LoginPageEntry}"
                        Placeholder="Enter Password"
                        IsPassword="True" 
-                       Completed="Login_Clicked"/>
+                       Completed="Login_Clicked"
+                       x:Name="passwordEntry"/>
             </StackLayout>
             
             <StackLayout Grid.Row="2"
